@@ -4,6 +4,8 @@ import Home from './Home';
 import PageSecond from './PageSecond';
 import PageOne from './PageOne';
 import Login from './Login';
+import Profile from './Profile';
+// import PersistentDrawer from './PersistentDrawer';
 
 
 interface IState {
@@ -43,18 +45,23 @@ export default class App extends React.Component<any,IState>{
                   showComponent: 'Home'
                 }));
           break;
+      case 'Profile': this.setState({
+                  showComponent: 'Profile'
+                });
+          break;
       default: alert('Wrong Menu');
-        break;
     }
   }
   public render(){
   return(
     <div>
-      <ButtonAppBar handleClick={this.handleClick} auth={this.state.auth} />
+      <ButtonAppBar handleClick={this.handleClick} auth={this.state.auth}/>
+      {/* <PersistentDrawer/> */}
       {this.state.showComponent==='Home' && <Home/>}
-      {this.state.showComponent==='Page1' && <PageOne/>}
+      {this.state.showComponent==='Page1' && <React.Fragment><PageOne/></React.Fragment>}
       {this.state.showComponent==='Page2' && <PageSecond/>}
       {this.state.showComponent==='Login' && <Login/>}
+      {this.state.showComponent==='Profile' && <Profile/>}
     </div>
   )
   }
