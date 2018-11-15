@@ -29,7 +29,7 @@ const drawerWidth = 240;
 const styles = (theme: Theme) => createStyles({
     root: {
       flexGrow: 1,
-      // display: 'flex',
+      display: 'flex',
     },
     grow: {
       flexGrow: 1,
@@ -41,7 +41,7 @@ const styles = (theme: Theme) => createStyles({
 
 // Letter avatars
     avatar: {
-      margin: 10,
+      margin: 0,
     },
     orangeAvatar: {
       margin: 10,
@@ -141,7 +141,10 @@ class ButtonAppBar extends React.Component<IProps, IState> {
     return (
       <div className={classes.root}>
       <CssBaseline />
-        <AppBar position="static">
+        <AppBar position="fixed"
+        className={classNames(classes.appBar, {
+          [classes.appBarShift]: openPersistentDrawer,
+        })}>
           <Toolbar>
             {/* <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
               <MenuIcon />
@@ -252,7 +255,7 @@ class ButtonAppBar extends React.Component<IProps, IState> {
         </Drawer>
         <main
           className={classNames(classes.content, {
-            [classes.contentShift]: open,
+            [classes.contentShift]: openPersistentDrawer,
           })}
         >
           <div className={classes.drawerHeader} />
