@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should have H1 tag 1`] = `[Function]`;
+
+exports[`should render Home correctly 1`] = `
+<div>
+  <h1>
+    Home Component
+  </h1>
+</div>
+`;
